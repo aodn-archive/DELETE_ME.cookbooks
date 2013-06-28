@@ -8,7 +8,7 @@
 #
 
  execute "CLONE ucl" do
-    command "git clone https://github.com/aodn/imos_user_code_library'"
+    command "git clone https://github.com/aodn/imos_user_code_library"
     not_if { ::File.exists?("/home/vagrant/imos_user_code_library")}
     cwd "/home/vagrant"
     user "vagrant"
