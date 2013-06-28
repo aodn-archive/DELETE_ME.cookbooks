@@ -16,7 +16,7 @@ execute "CLONE ucl" do
 end
 
 execute "simulink to desktop" do
-    command "ln -s  ~/imos_user_code_library ~/Desktop/IMOS_user_code_library"
+    command "ln -s /home/vagrant/imos_user_code_library ~/Desktop/IMOS_user_code_library"
     cwd "/home/vagrant"
     user "vagrant"
 end
