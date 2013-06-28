@@ -14,3 +14,10 @@ execute "CLONE ucl" do
     cwd "/home/vagrant"
     user "vagrant"
 end
+
+# to have a graphical interface
+package "xfce4"
+
+# to have a graphical login prompt
+package "xdm"
+package "xdmx"
