@@ -17,6 +17,7 @@ end
 
 # to have a graphical interface
 package "xfce4"
+package "xfce4-goodies"
 
 # to have a graphical login prompt
 package "xdm"
