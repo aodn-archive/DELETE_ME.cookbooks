@@ -45,4 +45,8 @@ r_package "raster" do
 	action :install
 end
 
+r_package "sp" do
+	action :install
+end
+
 
