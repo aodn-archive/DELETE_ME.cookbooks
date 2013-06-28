@@ -6,9 +6,20 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-r_package "ncdf4" do
-  action :install
+include_recipe "apt"
+
+package "netcdf-bin"
+
+execute "install ncdf4 library" do
+    command "wget http://cirrus.ucsd.edu/~pierce/ncdf/ncdf4_1.9.tar.gz;sudo R CMD INSTALL ncdf4_1.9.tar.gz"
+    not_if { ::File.exists?("/home/vagrant/ncdf4_1.9.tar.gz")}
+    cwd "/home/vagrant"
+    user "vagrant"
 end
+
+#r_package "ncdf4" do
+#  action :install
+#end
 
 r_package "aqfig" do
 	action :install
