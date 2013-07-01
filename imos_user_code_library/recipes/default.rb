@@ -49,6 +49,7 @@ package "e17"
 
 execute "simulink to desktop" do
     command "mkdir Desktop ; ln -s /home/vagrant/imos_user_code_library /home/vagrant/Desktop/IMOS_user_code_library"
+    not_if { ::File.exists?("/home/vagrant/Desktop/IMOS_user_code_library")}
     cwd "/home/vagrant"
     user "vagrant"
 end
