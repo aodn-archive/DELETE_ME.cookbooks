@@ -31,8 +31,8 @@ package "xorg"
 #package "xauth"
 #package "xinit"
 
-#package "lxdm"
-package "slim"
+package "lxdm"
+#package "slim"
 
 # really lightweight graphical environment
 package "e17"
@@ -55,5 +55,10 @@ end
 
 execute "restart VM" do
     command "shutdown -r now"
+    user "root"
+end
+
+execute "choose default desktop environment" do
+    command "sed -i '$ a\session=/usr/bin/enlightenment' /etc/lxdm/default.conf"
     user "root"
 end
