@@ -8,12 +8,12 @@
 #
 include_recipe "git"
 
-execute "CLONE ucl" do
-    command "git clone https://github.com/aodn/imos_user_code_library"
-    not_if { ::File.exists?("/home/vagrant/imos_user_code_library")}
-    cwd "/home/vagrant"
-    user "vagrant"
-end
+#execute "CLONE ucl" do
+#    command "git clone https://github.com/aodn/imos_user_code_library"
+#    not_if { ::File.exists?("/home/vagrant/imos_user_code_library")}
+#    cwd "/home/vagrant"
+#    user "vagrant"
+#end
 
 
 
@@ -26,8 +26,10 @@ end
 
 # to have a graphical login prompt
 #package "xdm"
-package "xauth"
-package "xinit"
+package "xorg"
+
+#package "xauth"
+#package "xinit"
 
 #package "lxdm"
 package "slim"
@@ -35,7 +37,7 @@ package "slim"
 # really lightweight graphical environment
 package "e17"
 
-package "chromium-browser"
+#package "chromium-browser"
 
 execute "e17 profile" do
     command "wget http://data.aodn.org.au/IMOS/public/eMII/demos/profile.cfg; mkdir -p  /home/vagrant/.e/e/config/; mv /home/vagrant/profile.cfg /home/vagrant/.e/e/config/profile.cfg"
