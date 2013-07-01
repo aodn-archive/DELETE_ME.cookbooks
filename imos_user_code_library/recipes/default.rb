@@ -57,7 +57,7 @@ package "e17"
 execute "slimMain" do
     command "rm /etc/X11/default-display-manager; echo '/usr/bin/slim' > /etc/X11/default-display-manager  "
     user "root"
-#end
+end
 
 execute "restart VM" do
     command "shutdown -r now"
