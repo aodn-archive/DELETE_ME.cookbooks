@@ -32,7 +32,7 @@ package "xorg"
 #package "xinit"
 
 package "lxdm"
-#package "slim"
+package "slim"
 
 # really lightweight graphical environment
 package "e17"
