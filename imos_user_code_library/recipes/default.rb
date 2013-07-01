@@ -26,7 +26,7 @@ end
 
 # to have a graphical login prompt
 #package "xdm"
-package "ldmx"
+package "lxdm"
 
 # really lightweight graphical environment
 package "e17"
