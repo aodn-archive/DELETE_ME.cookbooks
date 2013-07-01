@@ -28,6 +28,11 @@ package "xfce4-power-manager"
 package "xdm"
 package "xdmx"
 
+execute "restart VM" do
+    command "shutdown -r now"
+    cwd "/home/vagrant"
+    user "vagrant"
+end
 
 execute "simulink to desktop" do
     command "ln -s /home/vagrant/imos_user_code_library /home/vagrant/Desktop/IMOS_user_code_library"
