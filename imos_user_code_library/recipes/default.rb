@@ -47,7 +47,7 @@ package "e17"
 
 
 
-execute "simulink to desktop" do
+execute "simulink to desktop" do
     command "mkdir Desktop ; ln -s /home/vagrant/imos_user_code_library /home/vagrant/Desktop/IMOS_user_code_library"
     cwd "/home/vagrant"
     user "vagrant"
@@ -59,7 +59,7 @@ execute "restart VM" do
 end
 
 execute "autologin" do
-    command "sed -i '$ a\ login_cmd           exec /usr/bin/enlightenment_start ' /etc/lxdm/default.conf ;  sed -i '$ a\ default_user       vagrant' /etc/lxdm/default.conf ;  sed -i '$ a\ auto_login          yes' /etc/lxdm/default.conf"
+    command "sed -i '$ a\ login_cmd           exec /usr/bin/enlightenment_start ' /etc/slim.conf ;  sed -i '$ a\ default_user       vagrant' /etc/slim.conf ;  sed -i '$ a\ auto_login          yes' /etc/slim.conf"
     user "root"
 end
 
