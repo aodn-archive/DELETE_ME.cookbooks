@@ -54,9 +54,9 @@ package "e17"
 #    user "vagrant"
 #end
 
-#execute "slimMain" do
-#    command "dpkg-reconfigure slim"
-#    user "root"
+execute "slimMain" do
+    command "rm /etc/X11/default-display-manager; echo '/usr/bin/slim' > /etc/X11/default-display-manager  "
+    user "root"
 #end
 
 execute "restart VM" do
@@ -66,11 +66,8 @@ end
 
 
 execute "autologin" do
-    command "sed -i '$ a\login_cmd           exec /usr/bin/enlightenment_start ' /etc/slim.conf ;  sed -i '$ a\default_user       vagrant' /etc/slim.conf ;  sed -i '$ a\auto_login          yes' /etc/slim.conf"
+    command "sed -i '$ a\login_cmd           exec /usr/bin/enlightenment_start ' /etc/slim.conf ;  sed -i '$ a\default_user       vagrant ' /etc/slim.conf ;  sed -i '$ a\auto_login          yes ' /etc/slim.conf"
     user "root"
 end
 
-#execute "choose default desktop environment" do
-#    command "sed -i '$ a\session=/usr/bin/enlightenment' /etc/lxdm/default.conf"
-#    user "root"
-#end
+
