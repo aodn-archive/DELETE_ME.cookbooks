@@ -24,6 +24,9 @@ end
 # to have a graphical interface
 package "xfce4"
 package "xfce4-goodies"
+package "xfce4-utils"
+package "xfce4-session"
+package "xfce4-power-manager"
 
 # to have a graphical login prompt
 package "xdm"
