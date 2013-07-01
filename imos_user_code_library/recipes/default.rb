@@ -26,6 +26,7 @@ end
 
 # to have a graphical login prompt
 #package "xdm"
+package "xauth"
 package "lxdm"
 
 # really lightweight graphical environment
@@ -33,11 +34,13 @@ package "e17"
 
 package "chromium-browser"
 
+execute "e17 profile" do
+    command "wget http://data.aodn.org.au/IMOS/public/eMII/demos/profile.cfg; mv profile.cfg ~/.e/e/config/profile.cfg"
+    cwd "/home/vagrant"
+    user "vagrant"
+end
 
-#execute "startx" do
-#    command "startxfce4"
-#    user "vagrant"
-#end
+
 
 execute "simulink to desktop" do
     command "mkdir Desktop ; ln -s /home/vagrant/imos_user_code_library /home/vagrant/Desktop/IMOS_user_code_library"
