@@ -54,13 +54,19 @@ package "e17"
 #    user "vagrant"
 #end
 
+execute "slimMain" do
+    command "dpkg-reconfigure slim"
+    user "root"
+end
+
 execute "restart VM" do
     command "shutdown -r now"
     user "root"
 end
 
+
 execute "autologin" do
-    command "sed -i '$ a\ login_cmd           exec /usr/bin/enlightenment_start ' /etc/slim.conf ;  sed -i '$ a\ default_user       vagrant' /etc/slim.conf ;  sed -i '$ a\ auto_login          yes' /etc/slim.conf"
+    command "sed -i '$ a\login_cmd           exec /usr/bin/enlightenment_start ' /etc/slim.conf ;  sed -i '$ a\default_user       vagrant' /etc/slim.conf ;  sed -i '$ a\auto_login          yes' /etc/slim.conf"
     user "root"
 end
 
