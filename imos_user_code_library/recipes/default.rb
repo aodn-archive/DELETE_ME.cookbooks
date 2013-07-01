@@ -15,11 +15,7 @@ execute "CLONE ucl" do
     user "vagrant"
 end
 
-execute "simulink to desktop" do
-    command "ln -s /home/vagrant/imos_user_code_library /home/vagrant/Desktop/IMOS_user_code_library"
-    cwd "/home/vagrant"
-    user "vagrant"
-end
+
 
 # to have a graphical interface
 package "xfce4"
@@ -31,3 +27,10 @@ package "xfce4-power-manager"
 # to have a graphical login prompt
 package "xdm"
 package "xdmx"
+
+
+execute "simulink to desktop" do
+    command "ln -s /home/vagrant/imos_user_code_library /home/vagrant/Desktop/IMOS_user_code_library"
+    cwd "/home/vagrant"
+    user "vagrant"
+end
