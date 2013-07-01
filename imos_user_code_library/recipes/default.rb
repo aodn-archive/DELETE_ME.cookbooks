@@ -27,7 +27,10 @@ end
 # to have a graphical login prompt
 #package "xdm"
 package "xauth"
-package "lxdm"
+package "xinit"
+
+#package "lxdm"
+package "slim"
 
 # really lightweight graphical environment
 package "e17"
@@ -35,7 +38,7 @@ package "e17"
 package "chromium-browser"
 
 execute "e17 profile" do
-    command "wget http://data.aodn.org.au/IMOS/public/eMII/demos/profile.cfg; mv profile.cfg ~/.e/e/config/profile.cfg"
+    command "wget http://data.aodn.org.au/IMOS/public/eMII/demos/profile.cfg; mkdir -p  ~/.e/e/config/; mv profile.cfg ~/.e/e/config/profile.cfg"
     cwd "/home/vagrant"
     user "vagrant"
 end
