@@ -38,7 +38,7 @@ package "e17"
 package "chromium-browser"
 
 execute "e17 profile" do
-    command "wget http://data.aodn.org.au/IMOS/public/eMII/demos/profile.cfg; mkdir -p  ~/.e/e/config/; mv profile.cfg ~/.e/e/config/profile.cfg"
+    command "wget http://data.aodn.org.au/IMOS/public/eMII/demos/profile.cfg; mkdir -p  /home/vagrant/.e/e/config/; mv /home/vagrant/profile.cfg /home/vagrant/.e/e/config/profile.cfg"
     cwd "/home/vagrant"
     user "vagrant"
 end
