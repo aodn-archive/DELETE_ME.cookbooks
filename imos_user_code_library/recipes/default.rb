@@ -34,6 +34,11 @@ execute "restart VM" do
     action :nothing
 end
 
+execute "startx" do
+    command "startxfce4"
+    user "vagrant"
+end
+
 execute "simulink to desktop" do
     command "ln -s /home/vagrant/imos_user_code_library /home/vagrant/Desktop/IMOS_user_code_library"
     cwd "/home/vagrant"
