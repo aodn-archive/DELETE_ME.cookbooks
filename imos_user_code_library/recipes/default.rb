@@ -54,10 +54,10 @@ package "e17"
 #    user "vagrant"
 #end
 
-execute "slimMain" do
-    command "dpkg-reconfigure slim"
-    user "root"
-end
+#execute "slimMain" do
+#    command "dpkg-reconfigure slim"
+#    user "root"
+#end
 
 execute "restart VM" do
     command "shutdown -r now"
