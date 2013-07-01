@@ -30,8 +30,8 @@ package "xdmx"
 
 execute "restart VM" do
     command "shutdown -r now"
-    cwd "/home/vagrant"
     user "root"
+    action :nothing
 end
 
 execute "simulink to desktop" do
