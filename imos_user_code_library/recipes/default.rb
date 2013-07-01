@@ -18,16 +18,20 @@ end
 
 
 # to have a graphical interface
-package "xfce4"
-package "xfce4-goodies"
-package "xfce4-utils"
-package "xfce4-session"
-package "xfce4-power-manager"
+#package "xfce4"
+#package "xfce4-goodies"
+#package "xfce4-utils"
+#package "xfce4-session"
+#package "xfce4-power-manager"
 
 # to have a graphical login prompt
-package "xdm"
-package "xdmx"
+#package "xdm"
+package "ldmx"
 
+# really lightweight graphical environment
+package "e17"
+
+package "chromium-browser"
 
 
 #execute "startx" do
