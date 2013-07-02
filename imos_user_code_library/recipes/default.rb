@@ -27,12 +27,13 @@ package "slim"
 package "e17"
 
 package "chromium-browser"
+package "mousepad"
 
-#execute "e17 profile" do
-#    command "wget http://data.aodn.org.au/IMOS/public/eMII/demos/profile.cfg; mkdir -p  /home/vagrant/.e/e/config/; mv /home/vagrant/profile.cfg /home/vagrant/.e/e/config/profile.cfg"
-#    cwd "/home/vagrant"
-#    user "vagrant"
-#end
+execute "e17 profile" do
+    command "wget http://data.aodn.org.au/IMOS/public/eMII/demos/e17.tar.gz; tar -xzf e17.tar.gz"
+    cwd "/home/vagrant"
+    user "vagrant"
+end
 
 
 
@@ -48,15 +49,16 @@ execute "slimMain" do
     user "root"
 end
 
+
+
+
+execute "autologin" do
+    command "sed -i '$ a\login_cmd           exec /usr/bin/enlightenment_start  \rdefault_user       vagrant \rauto_login          yes '  /etc/slim.conf;"
+    user "root"
+end
+
 execute "restart VM" do
     command "shutdown -r now"
     user "root"
 end
-
-
-execute "autologin" do
-    command "sed -i '$ a\login_cmd           exec /usr/bin/enlightenment_start ' /etc/slim.conf ;  sed -i '$ a\default_user       vagrant ' /etc/slim.conf ;  sed -i '$ a\auto_login          yes ' /etc/slim.conf;"
-    user "root"
-end
-
 
