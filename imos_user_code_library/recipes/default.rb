@@ -19,7 +19,7 @@ end
 
 
 # to have a graphical login prompt
-package "xorg"
+#package "xorg"
 package "lxdm"
 package "slim"
 
