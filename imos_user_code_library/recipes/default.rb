@@ -52,10 +52,16 @@ end
 
 
 
+#execute "autologin" do
+#    command "sed -i '$ a\login_cmd           exec /usr/bin/enlightenment_start  \rdefault_user       vagrant \rauto_login          yes '  /etc/slim.conf;"
+#    user "root"
+#end
 execute "autologin" do
-    command "sed -i '$ a\login_cmd           exec /usr/bin/enlightenment_start  \rdefault_user       vagrant \rauto_login          yes '  /etc/slim.conf;"
+    command "echo 'login_cmd     exec /usr/bin/enlightenment_start' >> /etc/slim.conf;echo 'default_user    vagrant' >> /etc/slim.conf;echo 'auto_login    yes' >> /etc/slim.conf;"
     user "root"
 end
+
+
 
 execute "restart VM" do
     command "shutdown -r now"
