@@ -18,24 +18,28 @@ package "grails-ppa" do
   options "--force-yes"
 end
 
-package "grails-1.3.7"  do
-  options "--force-yes"
+if node[:grails][:versions].include? '1.3.7'
+  package "grails-1.3.7"  do
+    options "--force-yes"
+  end
+
+  # Patch the installation of 1.3.7, so that coverage reports work (on jenkins).
+  # See: http://comments.gmane.org/gmane.comp.lang.groovy.grails.user/106477
+  cookbook_file "/usr/share/grails/1.3.7/scripts/_GrailsClasspath.groovy" do
+    source "_GrailsClasspath.groovy"
+    mode 00644
+    owner "root"
+    group "root"
+  end
 end
 
-# Patch the installation of 1.3.7, so that coverage reports work (on jenkins).
-# See: http://comments.gmane.org/gmane.comp.lang.groovy.grails.user/106477
-cookbook_file "/usr/share/grails/1.3.7/scripts/_GrailsClasspath.groovy" do
-  source "_GrailsClasspath.groovy"
-  mode 00644
-  owner "root"
-  group "root"
+if node[:grails][:versions].include? '2.1.0'
+  package "grails-2.1.0"  do
+    options "--force-yes"
+  end
 end
 
-package "grails-2.1.0"  do
-  options "--force-yes"
-end
-
-execute "select grails 1.3.7 as default" do
-  command "update-alternatives --set grails /usr/share/grails/1.3.7/bin/grails"
+execute "select grails default" do
+  command "update-alternatives --set grails /usr/share/grails/#{node[:grails][:default_version]}/bin/grails"
   action :run
 end
