@@ -1,3 +1,5 @@
+include_recipe "python"
+
 # Packages by Marty's request
 
 # Maths & plotting (installs numpy as a dependency)
